@@ -1,0 +1,68 @@
+# cuda
+cuda_index: 0
+seed: 1005
+
+# path 
+lang: uz
+json_path: data/dataset/jsons
+preprocessed_dir: data/preprocessed
+target_dir: data/save
+
+bert-uz:
+  bert_path: xlm-roberta-base
+  cls: '<s>'
+  sep: '</s>'
+  unk: '<unk>'
+  pad: '<pad>'
+
+bert-uy:
+  bert_path: xlm-roberta-base
+  cls: '<s>'
+  sep: '</s>'
+  unk: '<unk>'
+  pad: '<pad>'
+
+unkown_tokens: '🍔—🐛🙉🙄🔨🏆🆔👌👀🥺冖🌚🙈😭🍎😅💩尛硌糇💰🐴🙊💯⭐🐶🐟🙏😄🏻📶🐮🍺❌🤔🐍🐸🙃🤣🏆😂🌚'
+max_length: 512
+
+# parameter 
+epoch_size: 15
+batch_size: 1
+lr: 1e-3
+bert_lr: 1e-5
+other_lr: 1e-5
+patience: 10
+max_grad_norm: 1.0
+warmup_proportion: 0.1
+gradient_accumulation_steps: 1
+adam_epsilon: 1e-8
+warmup_steps: 0
+weight_decay: 1e-6
+
+inner_dim: 256
+inner_dim_sub_uz: 50
+inner_dim_sub_uy: 50
+
+# dict 
+bio_mode: 'OBIES'
+asp_type: 'Aspect'
+tgt_type: 'Target'
+opi_type: 'Opinion'
+
+num_heads: [6, 6]
+num_head0: 2
+num_head1: 6
+dropout: 0.1
+fusion_type: 'gate0'
+soft: 'nosoft' 
+
+polarity_dict:
+  O: 0
+  pos: 1
+  neg: 2
+  other: 3
+
+loss_weight:
+  ent: 1
+  rel: 5
+  pol: 3
